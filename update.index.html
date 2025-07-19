@@ -1,0 +1,682 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FATAFAT JOBS - Your Ultimate Government Update Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- === GOOGLE ADSENSE SCRIPT YAHAN DAALEIN === -->
+    <!-- Jab aapka AdSense account approve ho jaye, to Google se mila hua script code yahan paste karein. -->
+    <!-- Example: <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+            color: #334155;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .header-bg {
+            background-image: linear-gradient(135deg, rgba(79, 70, 229, 0.95) 0%, rgba(124, 58, 237, 0.9) 100%), url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .main-heading { font-family: 'Poppins', sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        .sub-heading { font-family: 'Poppins', sans-serif; font-weight: 400; }
+        .section-card {
+            background-color: #ffffff;
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            border: 1px solid #e2e8f0;
+        }
+        .section-card:hover { transform: translateY(-8px); }
+        .section-title { font-family: 'Poppins', sans-serif; color: #4f46e5; font-weight: 700; border-bottom: 3px solid #a5b4fc; padding-bottom: 0.75rem; margin-bottom: 1.5rem; display: flex; align-items: center; }
+        .section-title svg { color: #6366f1; margin-right: 0.75rem; }
+        .link-item { 
+            background-color: #f8fafc; 
+            border-radius: 0.75rem; 
+            transition: all 0.2s ease-in-out; 
+            border-left: 5px solid #818cf8; 
+            padding: 1rem; 
+            margin-bottom: 0.75rem;
+        }
+        .link-item:hover { transform: translateY(-3px); box-shadow: 0 4px 10px -2px rgba(0,0,0,0.05); }
+        .link-item-button { color: #4338ca; font-weight: 600; text-decoration: none; flex-grow: 1; text-align: left; background: none; border: none; cursor: pointer; }
+        .link-item-button:hover { text-decoration: underline; }
+        .new-badge { background-color: #ef4444; color: #ffffff; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 0.5rem; margin-left: 0.75rem; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+        footer { 
+            background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)), url('https://www.transparenttextures.com/patterns/clean-gray-paper.png');
+            color: #94a3b8; 
+            font-family: 'Poppins', sans-serif; 
+        }
+        footer a { transition: color 0.3s ease; }
+        footer a:hover { color: #e2e8f0; }
+        #searchInput { font-family: 'Inter', sans-serif; }
+        .coming-soon-item { border-left-color: #f59e0b; }
+        
+        .highlight-section {
+            background: #ffffff;
+            border-radius: 1rem;
+            padding: 1.25rem;
+            margin-top: -2.5rem; /* Adjusted to be a bit smaller */
+            position: relative;
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
+            border: 1px solid #e2e8f0;
+        }
+        .highlight-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            color: #3730a3;
+            text-shadow: 1px 1px 0px #a5b4fc, 2px 2px 0px rgba(0,0,0,0.1);
+        }
+        .highlight-item {
+            background-color: #f1f5f9;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+        .highlight-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .details-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        .detail-heading { font-family: 'Poppins', sans-serif; font-weight: 700; color: #4f46e5; margin-top: 1.5rem; margin-bottom: 0.75rem; border-bottom: 2px solid #eef2ff; padding-bottom: 0.5rem; }
+        .detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+        .detail-item { background: #f1f5f9; padding: 0.75rem; border-radius: 0.5rem; }
+        .detail-item strong { color: #4338ca; }
+        .ad-placeholder {
+            background-color: #e9e9e9;
+            border: 2px dashed #ccc;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-weight: bold;
+            margin: 1.5rem 0;
+            border-radius: 1rem;
+        }
+        /* Social Icon Colors */
+        .social-icons a i { transition: color 0.3s ease; }
+        .fa-instagram { color: #E4405F; }
+        .fa-telegram-plane { color: #0088cc; }
+        .fa-facebook { color: #1877F2; }
+        .fa-whatsapp { color: #25D366; }
+        .fa-twitter { color: #1DA1F2; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <!-- Header -->
+    <header class="header-bg text-white shadow-lg py-6 pb-12">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div>
+                <div class="flex items-center text-3xl md:text-4xl font-extrabold main-heading">
+                    <i class="fas fa-rocket mr-3"></i>
+                    <span>FATAFAT JOBS</span>
+                </div>
+                <p class="mt-1 text-sm sub-heading opacity-90" data-key="subtitle">सबसे तेज अपडेट 🚀</p>
+            </div>
+            <div class="relative">
+                <select id="language-selector" class="bg-white bg-opacity-20 text-white font-bold py-2 pl-4 pr-10 rounded-full appearance-none focus:outline-none cursor-pointer">
+                    <option value="en" class="text-black">English</option>
+                    <option value="hi" class="text-black">हिन्दी</option>
+                </select>
+                <i class="fas fa-globe absolute right-4 top-1/2 -translate-y-1/2 text-white opacity-80 pointer-events-none"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- LIVE UPDATES BAR -->
+    <div id="live-ticker" class="bg-red-600 text-white py-2 px-4 font-semibold text-sm md:text-base overflow-hidden whitespace-nowrap">
+      <!-- Ticker content will be populated by JS -->
+    </div>
+
+    <!-- Main Page Content -->
+    <div id="main-page">
+        <main class="container mx-auto px-4">
+            
+            <section id="highlight-section" class="highlight-section mb-8">
+                <h2 class="text-xl md:text-2xl font-bold text-center mb-4 highlight-title" data-key="highlights_title">Important Updates</h2>
+                <div id="highlight-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+            </section>
+            
+            <!-- Dashboard Stats -->
+            <div id="dashboard-stats" class="grid grid-cols-2 md:grid-cols-4 gap-4 my-6 text-white text-center font-bold"></div>
+
+            <!-- === GOOGLE ADSENSE AD SLOT #1 YAHAN DAALEIN === -->
+            <div class="ad-placeholder"><span>Advertisement</span></div>
+            <!-- Example: <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="YYYYYYYYYY" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+            <!-- <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+
+            <div id="state-filter-container" class="bg-blue-100 border-l-4 border-blue-500 text-blue-800 p-4 rounded-lg mb-6 flex flex-col sm:flex-row items-center gap-4">
+                <label for="state-selector" class="font-bold flex-grow" data-key="state_select_label">Showing updates for:</label>
+                <select id="state-selector" class="bg-white border border-gray-300 rounded-lg p-2 w-full sm:w-auto">
+                    <option value="All India">All India</option>
+                </select>
+            </div>
+
+            <div class="mb-8 relative">
+                <input type="text" id="searchInput" class="w-full p-4 pl-12 text-lg border-2 border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" data-key-placeholder="search_placeholder">
+                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl"></i>
+                <ul id="search-suggestions" class="absolute bg-white border mt-1 rounded-lg shadow w-full z-10 text-slate-700" style="display: none;"></ul>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <section id="coming-soon" class="section-card lg:col-span-full"><h2 class="section-title"><i class="fas fa-hourglass-half w-8 h-8 text-amber-500"></i><span data-key="coming_soon_title">Jald Aa Raha Hai (Coming Soon)</span></h2><div id="coming-soon-list" class="space-y-3"></div><p class="no-results-message hidden text-center py-4" data-key="no_results">No matching items found.</p></section>
+                <section id="jobs" class="section-card"><h2 class="section-title"><i class="fas fa-briefcase w-8 h-8"></i><span data-key="jobs_title">Latest Job Updates</span></h2><div id="job-list" class="space-y-3"></div><p class="no-results-message hidden text-center py-4" data-key="no_results">No matching items found.</p></section>
+                <section id="privateJobs" class="section-card"><h2 class="section-title"><i class="fas fa-building w-8 h-8 text-purple-600"></i><span data-key="private_jobs_title">Private Job Opportunities</span></h2><div id="privateJobList" class="space-y-3"></div><p class="no-results-message hidden text-center py-4" data-key="no_results">No matching items found.</p></section>
+                <section id="schemes" class="section-card"><h2 class="section-title"><i class="fas fa-landmark w-8 h-8"></i><span data-key="schemes_title">Government Schemes</span></h2><div id="scheme-list" class="space-y-3"></div><p class="no-results-message hidden text-center py-4" data-key="no_results">No matching items found.</p></section>
+                <section id="results" class="section-card"><h2 class="section-title"><i class="fas fa-poll w-8 h-8"></i><span data-key="results_title">Latest Results</span></h2><div id="result-list" class="space-y-3"></div><p class="no-results-message hidden text-center py-4" data-key="no_results">No matching items found.</p></section>
+                <section id="admit-cards" class="section-card"><h2 class="section-title"><i class="fas fa-id-card w-8 h-8"></i><span data-key="admit_cards_title">Admit Cards</span></h2><div id="admit-card-list" class="space-y-3"></div><p class="no-results-message hidden text-center py-4" data-key="no_results">No matching items found.</p></section>
+                <section id="admission-notifications" class="section-card"><h2 class="section-title"><i class="fas fa-university w-8 h-8"></i><span data-key="admissions_title">Admission Notifications</span></h2><div id="admission-list" class="space-y-3"></div><p class="no-results-message hidden text-slate-500 text-center py-4" data-key="no_results">No matching items found.</p></section>
+                <section id="scholarship-notifications" class="section-card"><h2 class="section-title"><i class="fas fa-graduation-cap w-8 h-8"></i><span data-key="scholarships_title">Scholarship Notifications</span></h2><div id="scholarship-list" class="space-y-3"></div><p class="no-results-message hidden text-slate-500 text-center py-4" data-key="no_results">No matching items found.</p></section>
+            </div>
+            
+            <!-- AI Eligibility Checker moved before footer -->
+            <section class="section-card my-8">
+                <h2 class="section-title"><i class="fas fa-user-check w-8 h-8 text-green-500"></i><span data-key="eligibility_checker_title">AI Eligibility Checker ✨</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label for="user-education" class="block mb-2 font-semibold" data-key="education_label">Your Education</label>
+                        <input type="text" id="user-education" class="w-full p-2 border rounded-lg bg-slate-50" data-key-placeholder="education_placeholder">
+                    </div>
+                    <div>
+                        <label for="user-age" class="block mb-2 font-semibold" data-key="age_label">Your Age</label>
+                        <input type="number" id="user-age" class="w-full p-2 border rounded-lg bg-slate-50" data-key-placeholder="age_placeholder">
+                    </div>
+                     <div>
+                        <label for="user-state" class="block mb-2 font-semibold" data-key="state_label">Your State</label>
+                        <select id="user-state" class="w-full p-2 border rounded-lg bg-slate-50"></select>
+                    </div>
+                </div>
+                <button id="check-eligibility-btn" class="mt-4 w-full bg-green-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-green-700 transition duration-300 flex items-center justify-center">
+                    <span data-key="check_eligibility_btn">Check Eligibility</span>
+                </button>
+                <div id="eligibility-output-container" class="hidden mt-4">
+                    <h3 class="font-bold text-lg" data-key="eligibility_results_title">Eligibility Results:</h3>
+                    <div id="eligibility-loading" class="hidden text-center p-4">
+                        <i class="fas fa-spinner fa-spin text-3xl text-green-500"></i>
+                        <p class="mt-2" data-key="loading_text">Checking...</p>
+                    </div>
+                    <div id="eligibility-output" class="mt-2 p-4 bg-slate-100 rounded-lg border"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Details Page Content -->
+    <div id="details-page" class="hidden">
+        <main class="container mx-auto px-4 py-8">
+            <button onclick="showMainPage()" class="mb-6 bg-white text-slate-700 font-bold py-2 px-4 rounded-lg hover:bg-slate-100 transition duration-300 border border-slate-300">
+                <i class="fas fa-arrow-left mr-2"></i><span data-key="back_button">Back to Home</span>
+            </button>
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+                <h2 id="details-title" class="text-3xl font-bold text-indigo-800 mb-4"></h2>
+                <div id="details-body"></div>
+                <div class="mt-6 text-center">
+                    <a id="details-url" href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition">Official Link</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-12 py-8"><div class="container mx-auto px-4 text-center"><p class="font-semibold" data-key="copyright">&copy; 2024 FATAFAT JOBS. All Rights Reserved.</p><p class="mt-2 text-slate-400 text-sm" data-key="designed_for">Designed for Public Information</p><div class="flex justify-center space-x-6 mt-4 text-2xl social-icons"><a href="https://www.instagram.com/ASHISH_RAJ_AAHISH" target="_blank" class="text-slate-400 hover:opacity-80 transition"><i class="fab fa-instagram"></i></a><a href="https://t.me/ASHISH_RAJ_AAHISH" target="_blank" class="text-slate-400 hover:opacity-80 transition"><i class="fab fa-telegram-plane"></i></a><a href="https://www.facebook.com/ASHISH_RAJ_AAHISH" target="_blank" class="text-slate-400 hover:opacity-80 transition"><i class="fab fa-facebook"></i></a></div><p class="mt-4 text-sm text-slate-500"><strong data-key="contact_us">24/7 Contact us:</strong> <a href="mailto:ashishyadav62064c@gmail.com" class="hover:text-white">ashishyadav62064c@gmail.com</a></p><div class="mt-4" data-key="share_website">Share this website: <div class="flex justify-center space-x-4 mt-2 social-icons"><a id="whatsapp-share" href="#" target="_blank" class="text-2xl hover:opacity-80"><i class="fab fa-whatsapp"></i></a><a id="facebook-share" href="#" target="_blank" class="text-2xl hover:opacity-80"><i class="fab fa-facebook"></i></a><a id="twitter-share" href="#" target="_blank" class="text-2xl hover:opacity-80"><i class="fab fa-twitter"></i></a></div></div></footer>
+    
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919973644409" class="fixed bottom-5 right-5 z-50 bg-green-500 text-white rounded-full shadow-lg p-4 hover:bg-green-600 transition" target="_blank" aria-label="WhatsApp Chat">
+      <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <script>
+        // --- GLOBAL STATE & CONSTANTS ---
+        let userState = "All India";
+        let currentLang = 'en';
+        const sections = {'jobs': 'job-list', 'privateJobs': 'privateJobList', 'schemes': 'scheme-list', 'results': 'result-list', 'admit-cards': 'admit-card-list', 'admissions': 'admission-list', 'scholarships': 'scholarship-list'};
+        const indianStates = ["Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli and Daman and Diu", "Delhi", "Jammu and Kashmir", "Ladakh", "Lakshadweep", "Puducherry"];
+        const searchSuggestions = ["BPSC TRE 5.0", "SSC CGL 2025", "PM Kisan Yojana", "OFSS Bihar Admission", "Railway Group D", "UPSC Final Result", "Amazon Internship", "Wipro Work from Home", "TCS NQT 2025", "Bihar STET Result", "Vishwakarma Yojana"];
+
+        // --- UI ELEMENTS ---
+        const mainPage = document.getElementById('main-page');
+        const detailsPage = document.getElementById('details-page');
+        const languageSelector = document.getElementById('language-selector');
+        const stateSelector = document.getElementById('state-selector');
+        const searchInput = document.getElementById('searchInput');
+        const userEducationInput = document.getElementById('user-education');
+        const userAgeInput = document.getElementById('user-age');
+        const userStateInput = document.getElementById('user-state');
+        const checkEligibilityBtn = document.getElementById('check-eligibility-btn');
+        const eligibilityOutputContainer = document.getElementById('eligibility-output-container');
+        const eligibilityLoading = document.getElementById('eligibility-loading');
+        const eligibilityOutput = document.getElementById('eligibility-output');
+        const detailsTitle = document.getElementById('details-title');
+        const detailsBody = document.getElementById('details-body');
+        const detailsUrl = document.getElementById('details-url');
+        
+        // --- TRANSLATION DATA ---
+        const translations = {
+            en: {
+                title: "FATAFAT JOBS",
+                subtitle: "The Fastest Updates 🚀",
+                state_select_label: "Showing updates for:",
+                jobs_title: "Latest Job Updates", schemes_title: "Government Schemes", results_title: "Latest Results",
+                admit_cards_title: "Admit Cards", admissions_title: "Admission Notifications", scholarships_title: "Scholarship Notifications",
+                private_jobs_title: "Private Job Opportunities",
+                coming_soon_title: "Coming Soon",
+                highlights_title: "Important Updates",
+                no_updates: "No updates available for this state.",
+                search_placeholder: "Search for jobs, schemes, results...",
+                no_results: "No matching items found.",
+                copyright: "© 2024 FATAFAT JOBS. All Rights Reserved.",
+                designed_for: "Designed for Public Information",
+                eligibility_checker_title: "AI Eligibility Checker ✨",
+                education_label: "Your Education",
+                education_placeholder: "e.g., 12th Pass, Graduate",
+                age_label: "Your Age",
+                age_placeholder: "e.g., 25",
+                state_label: "Your State",
+                check_eligibility_btn: "Check Eligibility",
+                eligibility_results_title: "Eligibility Results:",
+                checking_eligibility: "Checking...",
+                error_checking_eligibility: "Sorry, could not check eligibility. Please try again.",
+                share_on_whatsapp: "Share on WhatsApp",
+                back_button: "Back to Home",
+                share_website: "Share this website:",
+                contact_us: "24/7 Contact us:"
+            },
+            hi: {
+                title: "फटाफट जॉब्स",
+                subtitle: "सबसे तेज अपडेट 🚀",
+                state_select_label: "इनके लिए अपडेट्स:",
+                jobs_title: "नवीनतम जॉब अपडेट्स", schemes_title: "सरकारी योजनाएं", results_title: "नवीनतम परिणाम",
+                admit_cards_title: "एडमिट कार्ड", admissions_title: "प्रवेश सूचनाएं", scholarships_title: "छात्रवृत्ति सूचनाएं",
+                private_jobs_title: "प्राइवेट जॉब्स",
+                coming_soon_title: "जल्द आ रहा है",
+                highlights_title: "महत्वपूर्ण अपडेट्स",
+                no_updates: "इस राज्य के लिए कोई अपडेट उपलब्ध नहीं है।",
+                search_placeholder: "जॉब्स, स्कीम्स, रिजल्ट्स खोजें...",
+                no_results: "कोई मेल खाने वाला आइटम नहीं मिला।",
+                copyright: "© 2024 फटाफट जॉब्स। सर्वाधिकार सुरक्षित।",
+                designed_for: "सार्वजनिक सूचना के लिए डिज़ाइन किया गया",
+                eligibility_checker_title: "AI योग्यता परीक्षक ✨",
+                education_label: "आपकी शिक्षा",
+                education_placeholder: "उदा., 12वीं पास, स्नातक",
+                age_label: "आपकी उम्र",
+                age_placeholder: "उदा., 25",
+                state_label: "आपका राज्य",
+                check_eligibility_btn: "योग्यता जांचें",
+                eligibility_results_title: "योग्यता परिणाम:",
+                checking_eligibility: "जाँच हो रही है...",
+                error_checking_eligibility: "क्षमा करें, योग्यता की जाँच नहीं हो सकी। कृपया पुनः प्रयास करें।",
+                share_on_whatsapp: "व्हाट्सएप पर साझा करें",
+                back_button: "वापस जाएं",
+                share_website: "इस वेबसाइट को साझा करें:"
+            }
+        };
+
+        // --- DATA YAHAN EDIT KAREN ---
+        const allData = {
+            highlights: [
+                { category: 'admissions', id: 'bihar-ofss-2nd-merit-2025' },
+                { category: 'jobs', id: 'bpsc-teacher-2025' },
+                { category: 'jobs', id: 'rrb-group-d-2025' },
+                { category: 'jobs', id: 'ssc-chsl-2025' }
+            ],
+            jobs: [
+                { id: 'bpsc-teacher-2025', title: "BPSC Teacher (TRE 5.0) Recruitment 2025", url: "https://bpsc.bih.nic.in/", qualification: "Varies (12th+D.El.Ed, Graduate+B.Ed, PG+B.Ed, STET)", eligibility: "Age 18/21-37 years", fees: "Varies", state: "Bihar", isNew: true, tags: ['bpsc', 'teacher', 'tre 5.0', 'recruitment', 'bihar', 'job', '2025'], details: { description: "Upcoming Phase 5 of the Bihar Teacher Recruitment Examination (TRE) for various levels including Primary, Middle, Secondary, and Higher Secondary schools." } },
+                { id: 'bihar-si', title: "Bihar Police Sub Inspector (SI) Vacancy 2025", url: "https://csbc.bih.nic.in/", qualification: "Graduate from any recognized university.", eligibility: "Age: 20-37 (Male), 20-40 (Female).", fees: "Gen/EBC/BC: ₹700, SC/ST: ₹400", state: "Bihar", isNew: true, tags: ['bihar', 'police', 'si', 'sub', 'inspector', 'vacancy', 'job', '2025'], details: {
+                    description: "Recruitment for the post of Sub Inspector in Bihar Police. This is a prestigious post for graduates looking to serve in the police force.",
+                    vacancies: [ { category: 'Total Posts', posts: '1275+' } ],
+                    physical: [ { standard: 'Height (Male)', requirement: '165 cm (Gen/BC), 160 cm (EBC/SC/ST)' }, { standard: 'Running (Male)', requirement: '1.6 km in 6 minutes 30 seconds' } ],
+                    dates: [ { event: 'Application Start', date: 'TBA' }, { event: 'Application End', date: 'TBA' } ]
+                }},
+                { id: 'ssc-cgl', title: "SSC CGL 2025 Notification", url: "https://ssc.gov.in/", qualification: "Bachelor's Degree", eligibility: "Various Group B & C posts in central govt.", fees: "Gen/OBC: ₹100, SC/ST/Female: ₹0", state: "All India", isNew: true, tags: ['ssc', 'cgl', '2025', 'notification', 'job', 'all india'], details: { description: "Staff Selection Commission's Combined Graduate Level examination for posts like Assistant Audit Officer, Inspector, Sub-Inspector in various central government ministries and departments." } },
+                { id: 'rrb-group-d-2025', title: "Railway Group D Recruitment 2025", url: "https://www.rrbcdg.gov.in/", qualification: "10th Pass, ITI", eligibility: "Age 18-33. For various posts in Level 1.", fees: "Gen: ₹500, SC/ST/EBC/Female: ₹250", state: "All India", isNew: true, tags: ['railway', 'rrb', 'group d', '2025', 'job', 'all india'], details: { description: "Massive recruitment drive by Railway Recruitment Boards for various Level 1 posts like Track Maintainer, Helper/Assistant, etc." } },
+            ],
+            privateJobs: [
+                { id: 'wipro-wfh', title: "Wipro Work From Home - Customer Support", url: "#", qualification: "12th Pass / Graduate", eligibility: "Good communication skills", fees: "N/A", state: "All India", isNew: true, tags: ['wipro', 'work from home', 'private', 'customer support', '2025'], details: { description: "Opportunity for freshers and experienced candidates to work from home as a customer support executive for Wipro." } },
+                { id: 'tcs-nqt', title: "TCS NQT Hiring 2025", url: "#", qualification: "Final Year Graduate", eligibility: "B.E./B.Tech/M.E./M.Tech/MCA/M.Sc", fees: "N/A", state: "All India", isNew: true, tags: ['tcs', 'nqt', 'hiring', '2025', 'private', 'it'], details: { description: "Tata Consultancy Services National Qualifier Test (NQT) for hiring fresh graduates for various IT roles." } },
+                { id: 'amazon-intern', title: "Amazon Virtual Internship Program", url: "#", qualification: "Currently enrolled in a degree program", eligibility: "Students in any discipline", fees: "N/A", state: "All India", isNew: false, tags: ['amazon', 'internship', 'virtual', 'private', '2025'], details: { description: "A virtual internship program by Amazon offering experience in various domains with a stipend." } },
+            ],
+            schemes: [
+                { id: 'bihar-udyami', title: "Bihar Mukhyamantri Udyami Yojana", url: "https://udyami.bihar.gov.in/", qualification: "12th/ITI/Polytechnic/Diploma", eligibility: "SC/ST/EBC/Women/Youth of Bihar. Interest-free loan up to ₹10 Lakh.", fees: "N/A", state: "Bihar", isNew: true, tags: ['bihar', 'mukhyamantri', 'udyami', 'yojana', 'scheme', 'loan', '2025'], details: { description: "A scheme by the Bihar government to promote entrepreneurship among youth and women by providing financial assistance and subsidies for setting up new enterprises." } },
+                { id: 'pm-kisan', title: "PM Kisan Samman Nidhi", url: "https://pmkisan.gov.in/", qualification: "N/A", eligibility: "All landholding farmer families.", fees: "N/A", state: "All India", isNew: false, tags: ['pm kisan', 'samman nidhi', 'scheme', 'farmer', 'all india', '2024', '2025'], details: { description: "A central government scheme to provide income support of ₹6,000 per year in three equal installments to all farmer families across the country." } },
+                { id: 'dbt-agri', title: "DBT Agriculture Bihar", url: "https://dbtagriculture.bihar.gov.in/", qualification: "Farmer Registration", eligibility: "Registered farmers of Bihar.", fees: "N/A", state: "Bihar", isNew: false, tags: ['dbt', 'agriculture', 'bihar', 'kisan', 'scheme'], details: { description: "Direct Benefit Transfer portal for various agricultural schemes in Bihar, including subsidies on seeds, diesel, and equipment. Farmers must register on the portal to avail benefits." } },
+            ],
+            results: [
+                 { id: 'bihar-stet', title: "Bihar STET 2024 Result", url: "http://bsebstet.com/", qualification: "N/A", eligibility: "Candidates who appeared for Bihar STET exam.", fees: "N/A", state: "Bihar", isNew: true, tags: ['bihar', 'stet', '2024', 'result', 'teacher'], details: { description: "Result for the Bihar Secondary Teachers Eligibility Test (STET) 2024. Candidates can check their scores and qualification status on the official website." } },
+                 { id: 'upsc-final', title: "UPSC Civil Services 2024 Final Result", url: "https://upsc.gov.in/", qualification: "N/A", eligibility: "Candidates who appeared for interview.", fees: "N/A", state: "All India", isNew: true, tags: ['upsc', 'civil services', 'ias', '2024', 'final', 'result', 'all india'], details: { description: "Final result of the prestigious Civil Services Examination 2024 conducted by UPSC for recruitment to IAS, IPS, IFS and other central services." } },
+            ],
+            'admit-cards': [
+                { id: 'bpsc-tre4', title: "BPSC Teacher (TRE 4.0) Admit Card", url: "https://bpsc.bih.nic.in/", qualification: "N/A", eligibility: "Applied candidates for TRE 4.0 exam.", fees: "N/A", state: "Bihar", isNew: true, tags: ['bpsc', 'teacher', 'tre 4.0', 'admit card', 'bihar', '2024'], details: { description: "Admit card for the 4th phase of Bihar Teacher Recruitment Examination. Candidates must download it to appear for the exam." } },
+            ],
+            admissions: [
+                { id: 'bihar-ofss-1st-merit-2025', title: "Bihar OFSS 11th Admission 1st Merit List 2025", url: "https://ofssbihar.in/", qualification: "10th Pass", eligibility: "Students who applied for 11th admission for session 2025-27.", fees: "N/A", state: "Bihar", isNew: true, tags: ['bihar', 'ofss', '11th', 'inter', 'admission', '2025', 'merit list', 'first', 'intimation letter'], details: { description: "The first merit list for OFSS Bihar 11th (Intermediate) admission for the session 2025-27. Students can check their allotted college and download the intimation letter." } },
+                { id: 'bihar-ofss-2nd-merit-2025', title: "Bihar OFSS 11th Admission 2nd Merit List 2025 & Intimation Letter", url: "https://ofssbihar.in/", qualification: "10th Pass", eligibility: "Students not selected in the 1st list or who opted for slide-up.", fees: "N/A", state: "Bihar", isNew: true, tags: ['bihar', 'ofss', '11th', 'inter', 'admission', '2025', 'merit list', 'second', 'intimation letter'], details: { description: "The second merit list for OFSS Bihar 11th (Intermediate) admission. Students can check their allotment and download their intimation letter to proceed with the admission process." } },
+                { id: 'patna-uni', title: "Patna University UG Admission 2025", url: "https://www.puponline.in/", qualification: "12th Pass", eligibility: "Based on merit/entrance for various UG courses.", fees: "Varies by course", state: "Bihar", isNew: true, tags: ['patna', 'university', 'ug', 'admission', '2025', 'bihar'], details: { description: "Admission process for undergraduate courses in Arts, Science, and Commerce streams in Patna University for the academic session 2025." } },
+            ],
+            scholarships: [
+                { id: 'bihar-pms', title: "Bihar Post Matric Scholarship (PMS) 2025-26", url: "https://pmsonline.bih.nic.in/", qualification: "Post-matriculation courses", eligibility: "SC, ST, BC, EBC students of Bihar.", fees: "N/A", state: "Bihar", isNew: true, tags: ['bihar', 'pms', 'post matric', 'scholarship', '2025', '2026'], details: { description: "Scholarship scheme by Bihar government for students of reserved categories to pursue post-matriculation education." } },
+            ],
+            upcoming: [
+                { category: 'jobs', releaseDate: '2025-09-01', title: "SSC MTS & Havaldar Recruitment 2025", url: "https://ssc.gov.in/", qualification: "10th Pass", eligibility: "Age 18-25/27 years.", fees: "Gen/OBC: ₹100, SC/ST/Female: ₹0", state: "All India", tags: ['ssc', 'mts', 'havaldar', 'recruitment', '2025', 'job', 'all india'] },
+                { category: 'jobs', releaseDate: '2025-10-15', title: "SBI PO Recruitment 2025", url: "https://sbi.co.in/web/careers", qualification: "Graduate", eligibility: "Age 21-30 years.", fees: "Gen/OBC/EWS: ₹750, SC/ST/PwD: ₹0", state: "All India", tags: ['sbi', 'po', 'probationary officer', 'bank', 'recruitment', '2025', 'job', 'all india'] },
+                { category: 'jobs', releaseDate: '2025-08-20', title: "SSC CHSL 2025 Notification", url: "https://ssc.gov.in/", qualification: "12th Pass", eligibility: "Age 18-27 years.", fees: "Gen/OBC: ₹100, SC/ST/Female: ₹0", state: "All India", tags: ['ssc', 'chsl', '10+2', 'recruitment', '2025', 'job', 'all india'] },
+            ]
+        };
+        
+        // --- HELPER & CORE FUNCTIONS ---
+        const setLanguage = (lang) => {
+            currentLang = lang;
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+             document.querySelectorAll('[data-key-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-key-placeholder');
+                if (translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+        };
+
+        const createItemHTML = (item, category) => {
+            const isNewBadge = item.isNew ? `<span class="new-badge">NEW</span>` : '';
+            return `<div class="link-item"><div class="flex-grow"><button onclick="showDetailsPage('${category}', '${item.id}')" class="link-item-button">${item.title}</button>${item.qualification ? `<p class="text-xs text-slate-500 mt-1"><strong>Qual:</strong> ${item.qualification}</p>` : ''}${item.eligibility ? `<p class="text-xs text-slate-500 mt-1"><strong>Elig:</strong> ${item.eligibility}</p>` : ''}${item.fees ? `<p class="text-xs text-slate-500 mt-1"><strong>Fees:</strong> ${item.fees}</p>` : ''}${item.state ? `<p class="text-xs text-slate-400 mt-1"><strong>State:</strong> ${item.state}</p>` : ''}</div><div class="flex items-center ml-2">${isNewBadge}</div></div>`;
+        };
+        
+        const createHighlightItemHTML = (item, category) => {
+             const isNewBadge = item.isNew ? `<span class="new-badge">NEW</span>` : '';
+            return `<div class="highlight-item"><div class="flex-grow"><button onclick="showDetailsPage('${category}', '${item.id}')" class="font-bold text-indigo-700 hover:underline text-left">${item.title}</button>${item.eligibility ? `<p class="text-xs text-slate-500 mt-1">${item.eligibility}</p>` : ''}${item.state ? `<p class="text-xs text-slate-400 mt-1"><strong>State:</strong> ${item.state}</p>` : ''}</div><div class="flex items-center ml-2">${isNewBadge}</div></div>`;
+        }
+
+        const createComingSoonItemHTML = (item) => {
+            return `<div class="link-item coming-soon-item"><div class="flex-grow"><span class="font-bold text-slate-700">${item.title}</span><p class="text-xs text-slate-500 mt-1"><strong>Expected Date:</strong> ${item.releaseDate}</p>${item.qualification ? `<p class="text-xs text-slate-500 mt-1"><strong>Qual:</strong> ${item.qualification}</p>` : ''}${item.eligibility ? `<p class="text-xs text-slate-500 mt-1"><strong>Elig:</strong> ${item.eligibility}</p>` : ''}${item.state ? `<p class="text-xs text-slate-400 mt-1"><strong>State:</strong> ${item.state}</p>` : ''}</div></div>`;
+        };
+
+        const renderContent = () => {
+            const selectedState = stateSelector.value;
+            const searchTerm = searchInput.value.toLowerCase().trim();
+
+            for (const [collectionName, listId] of Object.entries(sections)) {
+                const listElement = document.getElementById(listId);
+                const itemsForSection = allData[collectionName] || [];
+                
+                let filteredItems = itemsForSection.filter(item => {
+                    const stateMatch = selectedState === 'All India' || item.state === 'All India' || item.state === selectedState;
+                    if (!stateMatch) return false;
+
+                    if (searchTerm) {
+                        const searchString = `${item.title} ${item.qualification || ''} ${item.eligibility || ''} ${item.tags.join(' ')}`.toLowerCase();
+                        return searchString.includes(searchTerm);
+                    }
+                    return true;
+                });
+                
+                if (selectedState !== 'All India') {
+                    filteredItems.sort((a, b) => {
+                        if (a.state === selectedState && b.state !== selectedState) return -1;
+                        if (a.state !== selectedState && b.state === selectedState) return 1;
+                        return 0;
+                    });
+                }
+
+
+                listElement.innerHTML = filteredItems.map(item => createItemHTML(item, collectionName)).join('') || `<p class="text-slate-500 text-sm p-4">${translations[currentLang].no_updates}</p>`;
+                
+                const noResultsMessage = listElement.nextElementSibling;
+                if (noResultsMessage && noResultsMessage.classList.contains('no-results-message')) {
+                    noResultsMessage.style.display = (filteredItems.length === 0 && itemsForSection.length > 0) ? 'block' : 'none';
+                }
+            }
+
+            const comingSoonList = document.getElementById('coming-soon-list');
+            const filteredUpcoming = allData.upcoming.filter(item => {
+                const stateMatch = selectedState === 'All India' || item.state === 'All India' || item.state === selectedState;
+                 if (!stateMatch) return false;
+
+                if (searchTerm) {
+                    const searchString = `${item.title} ${item.qualification || ''} ${item.eligibility || ''} ${item.tags.join(' ')}`.toLowerCase();
+                    return searchString.includes(searchTerm);
+                }
+                return true;
+            });
+            comingSoonList.innerHTML = filteredUpcoming.map(item => createComingSoonItemHTML(item)).join('') || `<p class="text-slate-500 text-sm p-4">${translations[currentLang].no_updates}</p>`;
+            
+            const noResultsUpcoming = comingSoonList.nextElementSibling;
+            if (noResultsUpcoming && noResultsUpcoming.classList.contains('no-results-message')) {
+                noResultsUpcoming.style.display = (filteredUpcoming.length === 0 && allData.upcoming.length > 0) ? 'block' : 'none';
+            }
+
+            const highlightList = document.getElementById('highlight-list');
+            const highlightItems = allData.highlights.map(h => {
+                const item = allData[h.category]?.find(item => item.id === h.id);
+                return item ? { ...item, category: h.category } : null;
+            }).filter(Boolean);
+            highlightList.innerHTML = highlightItems.map(item => createHighlightItemHTML(item, item.category)).join('');
+        };
+
+        const processUpdatesAndLoadData = () => {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const upcomingItems = [];
+            if (allData.upcoming) {
+                allData.upcoming.forEach(item => {
+                    const releaseDate = new Date(item.releaseDate);
+                    if (releaseDate <= today) {
+                        if (allData[item.category]) {
+                            allData[item.category].unshift({ ...item, isNew: true });
+                        }
+                    } else {
+                        upcomingItems.push(item);
+                    }
+                });
+            }
+            allData.upcoming = upcomingItems;
+            renderContent();
+        };
+
+        // --- Gemini API Function ---
+        const checkEligibility = async () => {
+            const education = userEducationInput.value;
+            const age = userAgeInput.value;
+            const state = userStateInput.value;
+
+            if (!education.trim() || !age.trim() || !state.trim()) {
+                alert("Please fill all fields: Education, Age, and State.");
+                return;
+            }
+
+            eligibilityOutputContainer.classList.remove('hidden');
+            eligibilityLoading.classList.remove('hidden');
+            eligibilityOutput.classList.add('hidden');
+
+            const jobList = allData.jobs.map(job => `- ${job.title}: Qualification is ${job.qualification}, Eligibility is ${job.eligibility}, State is ${job.state}`).join('\n');
+            const prompt = `Based on the following list of jobs, tell me which ones I am likely eligible for. I am ${age} years old, my education is "${education}", and I live in ${state}. Provide a simple list of the job titles I might be eligible for and a brief one-sentence reason for each.
+
+            **Available Jobs:**
+            ${jobList}`;
+
+            try {
+                let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+                const payload = { contents: chatHistory };
+                const apiKey = ""; // Leave as-is
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates[0].content.parts[0].text) {
+                    eligibilityOutput.innerText = result.candidates[0].content.parts[0].text;
+                } else {
+                    eligibilityOutput.innerText = translations[currentLang].error_checking_eligibility;
+                }
+            } catch (error) {
+                console.error("Error calling Gemini API:", error);
+                eligibilityOutput.innerText = translations[currentLang].error_checking_eligibility;
+            } finally {
+                eligibilityLoading.classList.add('hidden');
+                eligibilityOutput.classList.remove('hidden');
+            }
+        };
+
+        window.shareToWhatsApp = (title, url) => {
+            const text = encodeURIComponent(`Check out this update: ${title}\n\n${url}`);
+            window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+        };
+
+        // --- Page Navigation Functions ---
+        window.showDetailsPage = (category, id) => {
+            const item = allData[category]?.find(i => i.id === id);
+            if (!item || !item.details) return;
+
+            detailsTitle.textContent = item.title;
+            let bodyHtml = `<p class="mb-4 text-slate-600">${item.details.description}</p>`;
+
+            if (item.details.vacancies) {
+                bodyHtml += `<h3 class="detail-heading">Vacancy Details</h3><div class="detail-grid">`;
+                item.details.vacancies.forEach(v => {
+                    bodyHtml += `<div class="detail-item"><strong>${v.category}:</strong> ${v.posts} Posts</div>`;
+                });
+                bodyHtml += `</div>`;
+            }
+            
+            if (item.details.physical) {
+                bodyHtml += `<h3 class="detail-heading">Physical Requirements</h3><div class="detail-grid">`;
+                item.details.physical.forEach(p => {
+                    bodyHtml += `<div class="detail-item"><strong>${p.standard}:</strong> ${p.requirement}</div>`;
+                });
+                bodyHtml += `</div>`;
+            }
+
+            if (item.details.dates) {
+                bodyHtml += `<h3 class="detail-heading">Important Dates</h3><div class="detail-grid">`;
+                item.details.dates.forEach(d => {
+                    bodyHtml += `<div class="detail-item"><strong>${d.event}:</strong> ${d.date}</div>`;
+                });
+                bodyHtml += `</div>`;
+            }
+
+            detailsBody.innerHTML = bodyHtml;
+            detailsUrl.href = item.url;
+            
+            mainPage.classList.add('hidden');
+            detailsPage.classList.remove('hidden');
+            window.scrollTo(0, 0);
+        };
+
+        window.showMainPage = () => {
+            detailsPage.classList.add('hidden');
+            mainPage.classList.remove('hidden');
+        };
+
+        // --- MAIN APP INITIALIZATION ---
+        const main = () => {
+            stateSelector.innerHTML += indianStates.map(state => `<option value="${state}">${state}</option>`).join('');
+            userStateInput.innerHTML = indianStates.map(state => `<option value="${state}">${state}</option>`).join('');
+
+            languageSelector.addEventListener('change', (e) => setLanguage(e.target.value));
+            stateSelector.addEventListener('change', renderContent);
+            searchInput.addEventListener('input', renderContent);
+            checkEligibilityBtn.addEventListener('click', checkEligibility);
+            
+            document.addEventListener('keydown', function (e) {
+                if (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'p')) {
+                    e.preventDefault();
+                }
+            });
+
+            // Share links
+            const pageUrl = encodeURIComponent(window.location.href);
+            const pageTitle = encodeURIComponent(document.title);
+            document.getElementById('whatsapp-share').href = `https://api.whatsapp.com/send?text=${pageTitle}%20-%20${pageUrl}`;
+            document.getElementById('facebook-share').href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+            document.getElementById('twitter-share').href = `https://twitter.com/intent/tweet?text=${pageTitle}&url=${pageUrl}`;
+            
+            // Ticker Content
+            const ticker = document.getElementById('live-ticker');
+            if (ticker) {
+                const newsItems = [
+                    "BPSC TRE 5.0 Notification Coming Soon",
+                    "UPSC Result 2024 Out Now",
+                    "OFSS 2nd Merit List Released"
+                ];
+                ticker.textContent = `🔴 Breaking: ${newsItems.join(' | ')}`;
+            }
+
+            // Dashboard Stats
+            const dashboard = document.getElementById('dashboard-stats');
+            if (dashboard) {
+                const stats = {
+                    jobs: allData.jobs.length,
+                    schemes: allData.schemes.length,
+                    admissions: allData.admissions.length,
+                    scholarships: allData.scholarships.length
+                };
+                dashboard.innerHTML = `
+                    <div class="bg-indigo-500 rounded-xl p-4 shadow-lg">🧾 Total Jobs<br><span class="text-3xl">${stats.jobs}+</span></div>
+                    <div class="bg-green-500 rounded-xl p-4 shadow-lg">📜 Schemes<br><span class="text-3xl">${stats.schemes}+</span></div>
+                    <div class="bg-yellow-500 rounded-xl p-4 shadow-lg">🎓 Admissions<br><span class="text-3xl">${stats.admissions}+</span></div>
+                    <div class="bg-pink-500 rounded-xl p-4 shadow-lg">💰 Scholarships<br><span class="text-3xl">${stats.scholarships}+</span></div>
+                `;
+            }
+
+            // Search Suggestions
+            const searchBox = document.getElementById('searchInput');
+            const suggestionBox = document.getElementById('search-suggestions');
+            if(searchBox && suggestionBox) {
+                searchBox.addEventListener('input', function () {
+                  const query = this.value.toLowerCase();
+                  suggestionBox.innerHTML = '';
+                  if (!query) {
+                    suggestionBox.style.display = 'none';
+                    return;
+                  }
+                  const matches = searchSuggestions.filter(item => item.toLowerCase().includes(query)).slice(0, 8);
+                  matches.forEach(match => {
+                    const li = document.createElement('li');
+                    li.textContent = match;
+                    li.className = 'px-4 py-2 cursor-pointer hover:bg-indigo-100';
+                    li.onclick = () => {
+                      searchBox.value = match;
+                      suggestionBox.style.display = 'none';
+                      searchBox.dispatchEvent(new Event('input'));
+                    };
+                    suggestionBox.appendChild(li);
+                  });
+                  suggestionBox.style.display = matches.length ? 'block' : 'none';
+                });
+            }
+            
+            setLanguage('en');
+            processUpdatesAndLoadData();
+        };
+
+        main();
+
+    </script>
+</body>
+</html>
